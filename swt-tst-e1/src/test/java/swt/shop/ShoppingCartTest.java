@@ -36,5 +36,29 @@ class ShoppingCartTest {
         cart.addItem("Käse", 3.50, 1);
         assertEquals(7.10, cart.getTotal(), 0.001);
     }
+    @Test
+    void testClear_resetsCart() {
+        cart.addItem("Wasser", 0.50, 5);
+        cart.clear();
+        assertEquals(0, cart.getItemCount());
+        assertEquals(0.0, cart.getTotal());
+    }
 
+    @Test
+    void testAddItem_emptyName_throwsException() {
+        assertThrows(IllegalArgumentException.class,
+            () -> cart.addItem("", 1.00, 1));
+    }
+
+    @Test
+    void testAddItem_negativePrice_throwsException() {
+        assertThrows(IllegalArgumentException.class,
+            () -> cart.addItem("Apfel", -1.00, 1));
+    }
+
+    @Test
+    void testAddItem_zeroQuantity_throwsException() {
+        assertThrows(IllegalArgumentException.class,
+            () -> cart.addItem("Apfel", 1.00, 0));
+    }
 }

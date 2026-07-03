@@ -93,7 +93,7 @@ getTotal(), getItemCount() und clear(). Schreibe dazu JUnit-5-Tests im TDD-Stil.
 Die KI lieferte eine funktionierende Grundimplementierung mit 
 Stream-basierter Preisberechnung und Tests für Normalfälle.
 
-**Meine Kritik – Edge-Cases die die KI übersehen hat:**
+**Meine Kritik – Edge-Cases, die die KI übersehen hat:**
 
 1. **Negativer Preis:** Keine Validierung für `price < 0` – ich habe 
    einen Guard `if (price < 0) throw new IllegalArgumentException(...)` ergänzt.
